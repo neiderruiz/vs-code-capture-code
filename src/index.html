@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Image Of Code</title>
+
+    <link rel="stylesheet" href="${styleUriPrismjs}" />
+    <link rel="stylesheet" href="${myStyleUri}" />
+  </head>
+  <body>
+    <h2>Capture your image</h2>
+    <h3>Preview</h3>
+    <img id="image" src="" alt="imagen" />
+    <h3>Code</h3>
+    <div id="container">
+      <pre>
+    <code id="root" class="language-javascript"></code>
+    </pre>
+    </div>
+    <script src="${domtoImageUri}" async></script>
+    <script src="${scriptUriPrismjs}" async></script>
+    <script src="${scriptUri}"></script>
+  </body>
+</html>
