@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Image Of Code</title>
+    <link rel="stylesheet" href="./theme.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h2>Capture your image</h2>
+    <h3>Preview</h3>
+    <div class="center-code">
+      <img id="image" src="" alt="imagen" />
+    </div>
+    <h3>Code</h3>
+    <div class="center-code">
+      <pre id="container">
+        <code id="root" class="language-jsx"></code>
+      </pre>
+    </div>
+
+    <script
+      src="../node_modules/dom-to-image-even-more/dist/dom-to-image-more.min.js"
+      async
+    ></script>
+    <script src="../node_modules/html-to-image/dist/html-to-image.js"></script>
+    <script src="../node_modules/prismjs/prism.js"></script>
+    <script src="../node_modules/prismjs/components/prism-jsx.min.js"></script>
+    <script src="../node_modules/prismjs/components/prism-javascript.min.js"></script>
+    <script src="../node_modules/prismjs/components/prism-cshtml.min.js"></script>
+    <script src="../node_modules/prismjs/components/prism-css.min.js"></script>
+    <script src="../node_modules/prismjs/components/prism-tsx.min.js"></script>
+    <script src="../node_modules/prismjs/components/prism-dart.min.js"></script>
+  
+    <script src="./script.js" type="module"></script>
+  </body>
+</html>
