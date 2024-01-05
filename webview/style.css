@@ -1,7 +1,7 @@
 /* container code */
 .display-code {
   position: absolute;
-  right: -800px;
+  right: -3000px;
 }
 
 code[class*="language-"],
