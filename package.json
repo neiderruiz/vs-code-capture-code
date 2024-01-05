@@ -2,7 +2,7 @@
   "name": "capture-code",
   "displayName": "Capture Code",
   "description": "capture image and open in browser",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "icon": "images/icon.png",
   "repository": {
     "type": "git",
