@@ -11,3 +11,13 @@
 - gif example
 
 ![capture code](https://github.com/neiderruiz/vs-code-capture-code/assets/57574910/8ce517ae-f239-412c-b761-f8c885e3812a)
+
+## generate package
+
+```bash	
+npm install -g vsce
+```
+
+```bash
+vsce package
+```
