@@ -141,12 +141,12 @@ Array.from(defaultsColors).forEach((color) => {
 
 const neiderruiz = document.getElementById('neiderruiz');
 
-externalLink.addEventListener('click', () => {
-  vscode.postMessage({ command: 'openExternalUrl', url: 'https://example.com' });
+neiderruiz.addEventListener('click', () => {
+  vscode.postMessage({ command: 'openExternalUrl', url: 'https://youtube.com/@neiderruiz' });
 });
 
 const devsbrand = document.getElementById('devsbrand');
 
-externalLink.addEventListener('click', () => {
-  vscode.postMessage({ command: 'openExternalUrl', url: 'https://example.com' });
+devsbrand.addEventListener('click', () => {
+  vscode.postMessage({ command: 'openExternalUrl', url: 'https://devsbrand.dev/' });
 });
