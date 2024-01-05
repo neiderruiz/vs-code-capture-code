@@ -1,3 +1,5 @@
+const vscode = acquireVsCodeApi();
+
 const getKeyClass = (languageId) => {
   switch (languageId) {
     case "javascriptreact":
@@ -23,6 +25,7 @@ const textToDiv = (text, languageId) => {
 
 const divToImage = async () => {
   const rootDiv = document.getElementById("container");
+  const urlDownload = document.getElementById("externalLink");
   rootDiv.style.display = "block";
   const SNAP_SCALE = 3;
   rootDiv.style.overflow = "hidden";
@@ -35,6 +38,8 @@ const divToImage = async () => {
   if (url !== "data:,") {
     image.src = url;
     rootDiv.style.display = "none";
+    // add url to open image
+    urlDownload.href = url;
   } else {
     divToImage();
   }
@@ -66,4 +71,14 @@ window.addEventListener("message", async (event) => {
     textToDiv(message.text, message.languageId);
     await divToImage();
   }
+});
+
+const externalLink = document.getElementById("externalLink");
+
+externalLink.addEventListener("click", () => {
+  const url = document.getElementById("externalLink").href;
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "image.png";
+  link.click();
 });
