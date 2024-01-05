@@ -1,3 +1,10 @@
+/* container code */
+.display-code {
+  position: absolute;
+  right: -800px;
+  background-color: lightblue;
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
   border-radius: 20px !important;
