@@ -10,10 +10,8 @@ const getKeyClass = (languageId) => {
 
 const textToDiv = (text, languageId) => {
   text = text.trim();
-  let codeElement = document.getElementById("root");
+  const codeElement = document.getElementById("root");
 
-  // re,ove a
-  //   remove all class
   codeElement.classList.remove(...codeElement.classList);
 
   codeElement.classList.add(`language-${getKeyClass(languageId)}`);
@@ -25,6 +23,7 @@ const textToDiv = (text, languageId) => {
 
 const divToImage = async () => {
   const rootDiv = document.getElementById("container");
+  rootDiv.style.display = "block";
   const SNAP_SCALE = 3;
   rootDiv.style.overflow = "hidden";
   const url = await domtoimage.toPng(rootDiv, {
@@ -33,9 +32,14 @@ const divToImage = async () => {
   });
   rootDiv.style.overflow = "auto";
   const image = document.querySelector("img");
-  image.src = url;
+  if(url !== 'data:,'){
+    image.src = url;
+    rootDiv.style.display = "none";
+  }else{
+    divToImage()
+  }
 };
-
+// htmlToImage no runing is testing
 const convertImage = () => {
   const rootDiv = document.getElementById("container");
   htmlToImage
@@ -52,10 +56,14 @@ const convertImage = () => {
     });
 };
 
-window.addEventListener("message", (event) => {
+window.addEventListener("message", async (event) => {
   const message = event.data;
   if (message.command === "createImage") {
+    if(message.text === ''){
+      return
+    }
+    
     textToDiv(message.text, message.languageId);
-    divToImage();
+    await divToImage();
   }
 });
