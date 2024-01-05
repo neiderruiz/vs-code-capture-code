@@ -32,11 +32,11 @@ const divToImage = async () => {
   });
   rootDiv.style.overflow = "auto";
   const image = document.querySelector("img");
-  if(url !== 'data:,'){
+  if (url !== "data:,") {
     image.src = url;
     rootDiv.style.display = "none";
-  }else{
-    divToImage()
+  } else {
+    divToImage();
   }
 };
 // htmlToImage no runing is testing
@@ -59,10 +59,10 @@ const convertImage = () => {
 window.addEventListener("message", async (event) => {
   const message = event.data;
   if (message.command === "createImage") {
-    if(message.text === ''){
-      return
+    if (message.text === "") {
+      return;
     }
-    
+
     textToDiv(message.text, message.languageId);
     await divToImage();
   }
