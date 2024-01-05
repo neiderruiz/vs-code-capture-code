@@ -7,9 +7,52 @@
     <link rel="stylesheet" href="./theme.css" />
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body>
-    <h2>Capture your image</h2>
-    <h3>Preview</h3>
+  <body class="space-y-6">
+    <h1 class="text-center text-4xl font-bold text-green-900 py-5">Capture Your Image</h1>
+
+    <!-- <input id="change-color" type="color" /> -->
+    <div class="space-y-3">
+      <h2 class="text-green-700">Change background color</h2>
+      <div class="flex justify-around">
+        <divc class="space-y-2">
+          <label for="">Select color</label>
+          <div class="flex space-x-2">
+            <div
+              class="defaults-colors h-5 w-5 rounded-full bg-purple-800"
+              data-color="bg-purple-800"
+            ></div>
+            <div
+              class="defaults-colors h-5 w-5 rounded-full bg-blue-700"
+              data-color="bg-blue-700"
+            ></div>
+            <div
+              class="defaults-colors h-5 w-5 rounded-full bg-blue-900"
+              data-color="bg-blue-900"
+            ></div>
+            <div
+              class="defaults-colors h-5 w-5 rounded-full bg-green-800"
+              data-color="bg-green-800"
+            ></div>
+            <div
+              class="defaults-colors h-5 w-5 rounded-full bg-blue-900"
+              data-color="bg-blue-900"
+            ></div>
+            <div
+              class="defaults-colors h-5 w-5 rounded-full bg-purple-800"
+              data-color="bg-purple-800"
+            ></div>
+            <div
+              class="defaults-colors h-5 w-5 rounded-full bg-red-800"
+              data-color="bg-red-800"
+            ></div>
+          </div>
+        </divc>
+        <div class="flex flex-col space-y-2">
+          <label for="">Change Color</label>
+          <input id="change-color" type="color" />
+        </div>
+      </div>
+    </div>
     <div class="center-code">
       <img id="image" src="" alt="imagen" />
     </div>
@@ -18,11 +61,26 @@
         <code id="root" class="language-jsx"></code>
       </pre>
     </div>
+   <div class="flex justify-center">
+    <button class="flex items-center space-x-2 px-4 py-2 rounded-full bg-green-600 hover:bg-green-700 focus:outline-none focus:ring focus:border-blue-300" id="externalLink" download="FILENAME.EXT">
+      <span class="text-white">Download</span>
+      <svg class="w-6 h-6 rotate-90" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+   </div>
 
+   <div class="flex justify-center">
+    <div class="space-x-2 flex">
+      <div id="neiderruiz">@neiderruiz</div>
+      <div id="devsbrand">@devsbrand</div>
+    </div>
+   </div>
     <script
       src="../node_modules/dom-to-image-even-more/dist/dom-to-image-more.min.js"
       async
     ></script>
+    <script src="./3.4.0.js"></script>
     <script src="../node_modules/html-to-image/dist/html-to-image.js"></script>
     <script src="../node_modules/prismjs/prism.js"></script>
     <script src="../node_modules/prismjs/components/prism-jsx.min.js"></script>
@@ -38,7 +96,6 @@
     <script src="../node_modules/prismjs/components/prism-markup-templating.min.js"></script>
     <script src="../node_modules/prismjs/components/prism-php.js"></script>
     <script src="../node_modules/prismjs/components/prism-rust.min.js"></script>
-  
     <script src="./script.js" type="module"></script>
   </body>
 </html>
