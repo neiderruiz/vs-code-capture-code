@@ -39,6 +39,13 @@ const runCommand = async (context: vscode.ExtensionContext) => {
       panel.webview.postMessage({ command: "createImage", text: newText, languageId });
     }
   });
+
+  panel.webview.onDidReceiveMessage((message) => {
+    if (message.command === "openExternalUrl") {
+      vscode.env.openExternal(vscode.Uri.parse(message.url));
+    }
+  });
+  
 };
 
 export const activate = (context: vscode.ExtensionContext) => {
