@@ -2,7 +2,6 @@
 .display-code {
   position: absolute;
   right: -800px;
-  background-color: lightblue;
 }
 
 code[class*="language-"],
@@ -24,7 +23,6 @@ h2 {
   justify-content: center;
   align-items: center;
 }
-
 
 code[class*="language-"],
 pre[class*="language-"] {
