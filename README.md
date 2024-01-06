@@ -4,13 +4,20 @@
 
 - Just select a block of text and press, right click and select the Capture Code option.
 
-- image result  
+## Change code select realtime
 
-![image](https://github.com/neiderruiz/vs-code-capture-code/assets/57574910/ccb466e6-d3f9-45b0-8d0d-d66e9f985b8f)
+![select-realtime](https://github.com/neiderruiz/vs-code-capture-code/assets/57574910/64e5b952-6fee-4c15-a8f6-ab8dc6b4ad7f)
 
-- gif example
 
-![capture code](https://github.com/neiderruiz/vs-code-capture-code/assets/57574910/8ce517ae-f239-412c-b761-f8c885e3812a)
+## Copy image clipboard
+
+![copy-cripboard](https://github.com/neiderruiz/vs-code-capture-code/assets/57574910/5a2aaf05-964b-40f0-b05d-4fd292623713)
+
+
+## Change color background capture
+
+![change-color](https://github.com/neiderruiz/vs-code-capture-code/assets/57574910/4f3cedcc-9fd8-4adc-8de0-6b7cfadbfee5)
+
 
 ## generate package
 
