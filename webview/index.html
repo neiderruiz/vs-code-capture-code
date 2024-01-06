@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="./theme.css" />
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body class="space-y-6">
-    <h1 class="text-center text-4xl font-bold text-green-600 py-5">Capture Your Image</h1>
-
-    <!-- <input id="change-color" type="color" /> -->
+  <body class="space-y-6 min-h-screen bg-gray-900">
+    <h1 class="text-center text-4xl font-bold text-green-600 py-5">Capture Code</h1>
     <div class="space-y-3">
       <h2 class="text-green-600 text-xl">Change background color</h2>
       <div class="flex justify-around">
@@ -54,18 +52,25 @@
       </div>
     </div>
     <div class="center-code">
-      <img id="image" src="" alt="imagen" />
+      <img id="image-result" src="https://placehold.co/800x400" alt="imagen" />
     </div>
     <div class="center-code display-code">
       <pre id="container">
         <code id="root" class="language-jsx"></code>
       </pre>
     </div>
-   <div class="flex justify-center">
+    <!-- buttons actions -->
+   <div class="flex justify-center space-x-2">
     <button class="flex items-center space-x-2 px-4 py-2 rounded-full bg-green-600 hover:bg-green-700 focus:outline-none focus:ring focus:border-blue-300" id="externalLink" download="FILENAME.EXT">
       <span class="text-white">Download Image</span>
       <svg class="w-6 h-6 rotate-90" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+      </svg>
+    </button>
+    <button id="copyButton" class="flex items-center space-x-2 px-4 py-2 rounded-full bg-green-600 hover:bg-green-700 focus:outline-none focus:ring focus:border-blue-300" download="FILENAME.EXT">
+      <span class="text-white">Copy Clipboard</span>
+      <svg class="w-6 h-6 rotate-90" fill="#fff" width="800px" height="800px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 12V2H4V0h12v12h-2zM0 4h12v12H0V4zm2 2v8h8V6H2z" fill-rule="evenodd"/>
       </svg>
     </button>
    </div>
@@ -79,6 +84,14 @@
       Developed by
       <span id="neiderruiz" class="text-green-600 cursor-pointer">@neiderruiz</span> founder of <span id="devsbrand" class="text-green-600 cursor-pointer">@devsbrand</div>
     </div>
+      <div id="success-copy" class="fixed inset-x-6 bottom-6 z-40 mx-auto w-max hidden">
+            <a href="https://tailus.gumroad.com/l/astls-premium" target="_blank" class="bg-green-600 flex gap-3 rounded-2xl border border-green-900/30 p-3 shadow-2xl shadow-green-900/50 ">
+              <svg class="w-6 h-6 rotate-90" fill="#fff" width="800px" height="800px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 12V2H4V0h12v12h-2zM0 4h12v12H0V4zm2 2v8h8V6H2z" fill-rule="evenodd"/>
+              </svg>
+                <span class="text-sm font-semibold tracking-wide text-yellow-900 dark:text-white">Copy Image Success</span>
+            </a>
+        </div>
   </div>
   
     <script
