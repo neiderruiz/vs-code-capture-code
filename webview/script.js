@@ -1,4 +1,5 @@
 const vscode = acquireVsCodeApi();
+
 const getKeyClass = (languageId) => {
   switch (languageId) {
     case "javascriptreact":
@@ -8,6 +9,41 @@ const getKeyClass = (languageId) => {
       return languageId;
   }
 };
+
+async function copyImgToClipboard() {
+  try {
+    const image = document.getElementById('image-result');
+    const base64String = image.src.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
+    const byteCharacters = atob(base64String);
+
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+
+    const byteArray = new Uint8Array(byteNumbers);
+
+    // generate blob image
+    const blob = new Blob([byteArray], { type: "image/png" });
+
+    await navigator.clipboard.write([
+      new ClipboardItem({
+        [blob.type]: blob,
+      }),
+    ]);
+  
+    document.getElementById('success-copy').classList.remove('hidden')
+
+    setTimeout(function() {
+      document.getElementById('success-copy').classList.add('hidden');
+    }, 2000);
+    
+
+  } catch (err) {
+    document.getElementById('error-inner').innerHTML = `${err.name} ${err.message}`
+    console.error(err.name, err.message);
+  }
+}
 
 const textToDiv = (text, languageId) => {
   text = text.trim();
@@ -33,7 +69,7 @@ const divToImage = async () => {
     scale: SNAP_SCALE,
   });
   rootDiv.style.overflow = "auto";
-  const image = document.querySelector("img");
+  const image = document.getElementById('image-result');
   if (url !== "data:,") {
     image.src = url;
     rootDiv.style.display = "none";
@@ -42,22 +78,6 @@ const divToImage = async () => {
   } else {
     divToImage();
   }
-};
-// htmlToImage no runing is testing
-const convertImage = () => {
-  const rootDiv = document.getElementById("container");
-  htmlToImage
-    .toPng(rootDiv, {
-      scale: 3,
-    })
-    .then(function (dataUrl) {
-      document.querySelector("img").src = dataUrl;
-      document.getElementById("open_image").href = dataUrl;
-      document.getElementById("open_image").innerHTML = dataUrl;
-    })
-    .catch(function (error) {
-      console.error("oops, something went wrong!", error);
-    });
 };
 
 window.addEventListener("message", async (event) => {
@@ -75,7 +95,6 @@ window.addEventListener("message", async (event) => {
     const rootDiv = document.getElementById("container");
     // remove all class
     rootDiv.classList.remove(...rootDiv.classList);
-    
     // load color default
     if (color) {
       rootDiv.style.backgroundColor = "";
@@ -121,7 +140,7 @@ const defaultsColors = document.getElementsByClassName("defaults-colors");
 Array.from(defaultsColors).forEach((color) => {
   color.addEventListener("click", async (e) => {
     // get color data
-    const colorClass = e.target.dataset.color; 
+    const colorClass = e.target.dataset.color;
     const rootDiv = document.getElementById("container");
     // remove all class
     rootDiv.style.backgroundColor = "";
@@ -134,19 +153,26 @@ Array.from(defaultsColors).forEach((color) => {
     window.localStorage.setItem("color", colorClass);
 
     await divToImage();
+  });
+});
 
+const neiderruiz = document.getElementById("neiderruiz");
+
+neiderruiz.addEventListener("click", () => {
+  vscode.postMessage({
+    command: "openExternalUrl",
+    url: "https://youtube.com/@neiderruiz",
+  });
+});
+
+const devsbrand = document.getElementById("devsbrand");
+
+devsbrand.addEventListener("click", () => {
+  vscode.postMessage({
+    command: "openExternalUrl",
+    url: "https://devsbrand.dev/",
   });
 });
 
 
-const neiderruiz = document.getElementById('neiderruiz');
-
-neiderruiz.addEventListener('click', () => {
-  vscode.postMessage({ command: 'openExternalUrl', url: 'https://youtube.com/@neiderruiz' });
-});
-
-const devsbrand = document.getElementById('devsbrand');
-
-devsbrand.addEventListener('click', () => {
-  vscode.postMessage({ command: 'openExternalUrl', url: 'https://devsbrand.dev/' });
-});
+document.getElementById('copyButton').addEventListener('click', () => copyImgToClipboard())
